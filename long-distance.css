@@ -115,3 +115,14 @@
 
 /* Tamil couplet set as a clear two-line verse. */
 .distance-edition .final-kural{font-family:"Noto Serif Tamil",serif;font-size:clamp(12.5px,1.25vw,16px)!important;font-style:normal;font-weight:600!important;line-height:1.9;letter-spacing:-.025em;text-align:center}
+
+/* Platform-independent plane icon, globe breathing room, and geographic globe map. */
+.distance-edition .route-line i{display:grid;place-items:center;width:27px;height:27px;padding:0!important;color:#f2e6bd}
+.distance-edition .route-line i svg{display:block;width:16px;height:16px;fill:currentColor}
+.distance-edition .route-label{top:19px!important}
+.distance-edition .hero-aside{margin:4px auto 26px!important}
+.distance-edition .field-fireflies{top:61%!important;opacity:.48}
+.distance-edition .globe-shell:before{display:none}
+.distance-edition .globe-canvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;border-radius:50%}
+@media(max-width:600px){.distance-edition .hero-aside{margin:2px auto 29px!important}.distance-edition .field-fireflies{top:62%!important}.distance-edition .route-label{top:19px!important}}
+@media(prefers-reduced-motion:reduce){.distance-edition .globe-canvas{filter:none}}

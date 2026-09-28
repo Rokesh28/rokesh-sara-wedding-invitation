@@ -1,0 +1,5 @@
+World land outlines: Natural Earth 1:110m Physical Vectors (public domain).
+https://www.naturalearthdata.com/downloads/110m-physical-vectors/110m-land/
+
+Orthographic globe projection: D3 Geo 3.1.1 by Mike Bostock and Charles Karney.
+BSD 3-Clause License: LICENSE-d3-geo.txt
