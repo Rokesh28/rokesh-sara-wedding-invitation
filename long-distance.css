@@ -112,3 +112,6 @@
 @media(prefers-reduced-motion:reduce){.distance-edition .reveal-in{filter:none!important;will-change:auto;transition-duration:.01ms!important}.distance-edition .envelope-wrap.opened .letter-peek{animation:none}}
 /* Keep stacked cards and the boarding pass anchored in their layout while their details reveal. */
 .distance-edition .event-card.reveal-in,.distance-edition .boarding-pass.reveal-in{translate:0 0!important;scale:1!important}
+
+/* Tamil couplet set as a clear two-line verse. */
+.distance-edition .final-kural{font-family:"Noto Serif Tamil",serif;font-style:normal;font-weight:600!important;line-height:1.85;letter-spacing:0;text-align:center}
