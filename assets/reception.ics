@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rokesh and Sara//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:welcome-reception-20270119@rokesh-sara-invitation
+DTSTAMP:20260928T051044Z
+SUMMARY:Rokesh & Sara | Welcome Reception
+DTSTART:20270119T133000Z
+DTEND:20270119T163000Z
+LOCATION:VGP Golden Beach Resort\, 5\, 159\, SH 49\, Injambakkam\, Chennai 
+ 600115\, Tamil Nadu
+DESCRIPTION:Join us for the welcome reception.
+END:VEVENT
+END:VCALENDAR
