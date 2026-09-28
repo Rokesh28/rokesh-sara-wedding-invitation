@@ -8,17 +8,17 @@
   <title>Rokesh & Sara — A Journey to Forever</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Noto+Serif+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Noto+Serif+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="long-distance.css?v=globe-map-1">
+  <link rel="stylesheet" href="long-distance.css?v=guestbook-1">
 </head>
 <body class="distance-edition">
   <div class="intro" id="intro" aria-label="Open your invitation">
     <div class="intro-sky"></div>
-    <div class="intro-copy"><span class="eyebrow">Across oceans, closer than ever</span><h1>A special message<br><i>awaits...</i></h1></div>
+    <div class="intro-copy"><span class="eyebrow">For our favourite people</span><h1>A special message<br><i>awaits...</i></h1></div>
     <button class="envelope-wrap" id="openInvite" aria-label="Open the wedding invitation">
       <span class="flower-spray spray-left" aria-hidden="true">✿ ✽ ❀</span><span class="flower-spray spray-right" aria-hidden="true">❀ ✽ ✿</span>
-      <span class="envelope"><span class="envelope-back"></span><span class="letter-peek"><span>ROKESH</span><b>&amp;</b><span>SARA</span></span><span class="envelope-flap"></span><span class="wax-seal">R<span>&amp;</span>S</span></span><span class="opening-spark spark-one" aria-hidden="true">✦</span><span class="opening-spark spark-two" aria-hidden="true">✧</span>
+      <span class="envelope"><span class="envelope-back"></span><span class="letter-peek"><span>Rokesh</span><b>&amp;</b><span>Sara</span></span><span class="envelope-flap"></span><span class="wax-seal">R<span>&amp;</span>S</span></span><span class="opening-spark spark-one" aria-hidden="true">✦</span><span class="opening-spark spark-two" aria-hidden="true">✧</span>
     </button>
     <p class="open-hint">TAP TO OPEN <span>✦</span></p>
     <span class="intro-coast">USA <span>✈</span> INDIA</span>
@@ -73,14 +73,35 @@
 
 
 
-    <section class="closing"><img class="closing-art reveal-in" src="assets/forever.svg" alt="A sweet illustration of Rokesh and Sara celebrating together"><div class="closing-stars reveal-in">✧ &nbsp; ✦ &nbsp; ✧</div><div class="closing-orbit" aria-hidden="true"><i>♡</i></div><p class="eyebrow reveal-in">From far apart to right here</p><h2 class="reveal-in">Our forever<br><i>starts with you</i></h2><div class="countdown reveal-in" id="weddingCountdown" data-date="2027-01-20T09:30:00+05:30" role="timer" aria-label="Countdown to the wedding ceremony"><p class="countdown-heading">COUNTING DOWN TO OUR WEDDING</p><div class="countdown-grid"><div><strong data-unit="days">—</strong><span>DAYS</span></div><div><strong data-unit="hours">—</strong><span>HOURS</span></div><div><strong data-unit="minutes">—</strong><span>MINUTES</span></div><div><strong data-unit="seconds">—</strong><span>SECONDS</span></div></div><p class="countdown-time">JANUARY 20, 2027 · 9:30 AM · CHENNAI TIME</p></div><div class="final-blessings reveal-in"><p class="final-kural" lang="ta">அன்பிற்கும் உண்டோ அடைக்குந்தாழ் ஆர்வலர்<br>புன்கணீர் பூசல் தரும்.</p><div class="paired-blessings"><p class="muruga-blessing">✦ &nbsp; Om Muruga!</p><blockquote>“Therefore what God has joined together, let no one separate.”<cite>MARK 10:9</cite></blockquote></div></div><p class="reveal-in">With love and excitement,</p><div class="signature reveal-in">Rokesh <span>&amp;</span> Sara</div><p class="closing-date reveal-in">JANUARY 19–20, 2027 · CHENNAI</p><div class="closing-flower">❀</div></section>
+    <section class="guestbook section" id="guestbook">
+      <p class="eyebrow reveal-in">A little love from our favourite people</p>
+      <h2 class="reveal-in">Leave us a<br><i>happy thought</i></h2>
+      <p class="guestbook-intro reveal-in">Your words will become part of the story we carry into forever.</p>
+      <div class="guestbook-layout">
+        <div class="guest-wishes reveal-in" id="guestWishes" aria-live="polite" aria-label="Messages from our guests">
+          <article class="wish-empty"><span aria-hidden="true">♡</span><p>The first lovely wishes will appear here.</p><small>Be the first to leave us a note</small></article>
+        </div>
+        <form class="wish-form reveal-in" id="wishForm">
+          <p class="wish-form-title">WRITE US A NOTE</p>
+          <label for="wishName">Your name<input id="wishName" name="name" autocomplete="name" maxlength="60" required placeholder="How should we sign it?"></label>
+          <label for="wishMessage">Your wishes<textarea id="wishMessage" name="message" rows="4" maxlength="500" required placeholder="A blessing, a memory, or a little advice for forever…"></textarea></label>
+          <div class="wish-honeypot" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+          <button type="submit">Leave your wish <span aria-hidden="true">♡</span></button>
+          <p class="wish-status" id="wishStatus" role="status" aria-live="polite">Messages shared here will be visible to everyone.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="closing"><img class="closing-art reveal-in" src="assets/forever.svg" alt="A sweet illustration of Rokesh and Sara celebrating together"><div class="closing-stars reveal-in">✧ &nbsp; ✦ &nbsp; ✧</div><div class="closing-orbit" aria-hidden="true"><i>♡</i></div><p class="eyebrow reveal-in">From far apart to right here</p><h2 class="reveal-in">Our forever<br><i>starts with you</i></h2><div class="countdown reveal-in" id="weddingCountdown" data-date="2027-01-20T09:30:00+05:30" role="timer" aria-label="Countdown to the wedding ceremony"><p class="countdown-heading">COUNTING DOWN TO OUR WEDDING</p><div class="countdown-grid"><div><strong data-unit="days">—</strong><span>DAYS</span></div><div><strong data-unit="hours">—</strong><span>HOURS</span></div><div><strong data-unit="minutes">—</strong><span>MINUTES</span></div><div><strong data-unit="seconds">—</strong><span>SECONDS</span></div></div><p class="countdown-time">JANUARY 20, 2027 · 9:30 AM · CHENNAI TIME</p></div><div class="final-blessings reveal-in"><p class="final-kural" lang="ta">அன்பிற்கும் உண்டோ அடைக்குந்தாழ் ஆர்வலர்<br>புன்கணீர் பூசல் தரும்.</p><div class="paired-blessings"><p class="muruga-blessing">✦ &nbsp; Om Muruga!</p><blockquote>“So they are no longer two, but one flesh. Therefore what God has joined together, let no man separate.”<cite>MATTHEW 19:6</cite></blockquote></div></div><p class="reveal-in">With love and excitement,</p><div class="signature reveal-in">Rokesh <span>&amp;</span> Sara</div><p class="closing-date reveal-in">JANUARY 19–20, 2027 · CHENNAI</p><div class="closing-flower">❀</div></section>
     <footer>MADE WITH LOVE &nbsp; ♡ &nbsp; FOR OUR FAVOURITE PEOPLE</footer>
   </main>
-  <script src="assets/d3-array.min.js?v=globe-2"></script>
-  <script src="assets/d3-geo.min.js?v=globe-2"></script>
-  <script src="assets/world-land.js?v=globe-2"></script>
-  <script src="globe.js?v=globe-2"></script>
+  <script src="assets/d3-array.min.js?v=globe-5"></script>
+  <script src="assets/d3-geo.min.js?v=globe-5"></script>
+  <script src="assets/world-land.js?v=globe-5"></script>
+  <script src="globe.js?v=globe-5"></script>
   <script src="long-distance-opener.js"></script>
   <script src="long-distance.js"></script>
+  <script src="guestbook-config.js?v=guestbook-2"></script>
+  <script src="guestbook.js"></script>
 </body>
 </html>

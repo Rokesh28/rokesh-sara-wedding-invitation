@@ -126,3 +126,66 @@
 .distance-edition .globe-canvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;border-radius:50%}
 @media(max-width:600px){.distance-edition .hero-aside{margin:2px auto 29px!important}.distance-edition .field-fireflies{top:62%!important}.distance-edition .route-label{top:19px!important}}
 @media(prefers-reduced-motion:reduce){.distance-edition .globe-canvas{filter:none}}
+
+/* Stabilize the country route, give the globe its own breathing room, and polish the names. */
+.distance-edition .hero h1{font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif!important;font-weight:500;letter-spacing:-.035em}
+.distance-edition .hero .route{position:relative;z-index:2;margin-bottom:0!important}
+.distance-edition .hero .hero-globe{top:0!important;margin:34px auto 14px!important}
+.distance-edition .letter-peek{position:relative;isolation:isolate;overflow:hidden}
+.distance-edition .letter-peek span{position:relative;z-index:1;background:linear-gradient(105deg,#755114 0%,#d6b24e 18%,#fff0a6 34%,#9b7127 52%,#f7dc75 70%,#7a591d 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700;text-shadow:0 1px 1px #fff7;animation:foil-name 3.6s ease-in-out infinite}
+.distance-edition .letter-peek:after{content:"";position:absolute;z-index:0;inset:-45% auto -45% -38%;width:24%;transform:rotate(20deg);background:linear-gradient(90deg,transparent,#fff9d866,transparent);filter:blur(2px);animation:foil-glint 4.8s ease-in-out infinite;pointer-events:none}
+@keyframes foil-name{0%,100%{background-position:100% 50%}50%{background-position:0 50%}}
+@keyframes foil-glint{0%,45%{left:-38%;opacity:0}55%{opacity:.75}80%,100%{left:125%;opacity:0}}
+@media(max-width:600px){.distance-edition .hero .hero-globe{top:0!important;margin:34px auto 16px!important}}
+@media(prefers-reduced-motion:reduce){.distance-edition .letter-peek span,.distance-edition .letter-peek:after{animation:none}}
+
+/* Keep the envelope monogram on its face; reveal the letter only as the flap opens. */
+.distance-edition .letter-peek{position:absolute;z-index:2;left:0;right:0;top:108px;height:auto;min-height:28px;overflow:visible;display:flex;align-items:center;justify-content:center;gap:8px;padding:0;background:transparent;box-shadow:none;letter-spacing:.13em}
+.distance-edition .letter-peek:after{inset:-24px auto -24px -38%;width:26%;z-index:1}
+.distance-edition .letter-peek span{font-size:clamp(14px,4.2vw,19px);white-space:nowrap}
+.distance-edition .letter-peek b{font-size:23px;line-height:1}
+.distance-edition .envelope-wrap.opened .letter-peek{top:12px;left:12%;right:12%;height:146px;min-height:0;z-index:2;padding:28px 10px 0;background:linear-gradient(145deg,#fbf5e5,#e9dfc2 62%,#d9c995);box-shadow:inset 0 0 0 1px #c4a86670,inset 0 0 0 5px #f7f0dc}
+@media(max-width:600px){.distance-edition .letter-peek{top:100px}.distance-edition .envelope-wrap.opened .letter-peek{top:12px;height:135px}}
+
+/* Match the hand-lettered signature across the hero and envelope. */
+.distance-edition .hero h1{font-family:var(--script)!important;font-size:clamp(78px,11vw,118px)!important;font-weight:400!important;line-height:.9!important;letter-spacing:0!important}
+.distance-edition .hero h1 span{font-family:var(--serif)!important;font-size:.62em!important;font-style:italic;color:#d9bd75!important;vertical-align:.1em}
+.distance-edition .letter-peek{letter-spacing:0!important}
+.distance-edition .letter-peek span{font-family:var(--script)!important;font-size:clamp(27px,7vw,37px)!important;font-weight:400!important;letter-spacing:.015em!important;background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:#18372c!important;text-shadow:0 1px #e8eedb70!important;animation:none!important}
+.distance-edition .letter-peek b{font-family:var(--script)!important;font-size:29px!important;font-weight:400!important;color:#315b42!important;text-shadow:none!important}
+.distance-edition .letter-peek:after{background:linear-gradient(90deg,transparent,#274d3825,transparent)!important;filter:blur(3px);animation-duration:6s!important}
+@media(max-width:600px){.distance-edition .hero h1{font-size:clamp(58px,15vw,76px)!important;line-height:.92!important}.distance-edition .letter-peek span{font-size:clamp(27px,8.4vw,34px)!important}}
+
+/* A shared guestbook styled like keepsake notes from the journey. */
+.distance-edition .guestbook{position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 18%,#1d3c30,#111916 68%,#0d1311);color:#e7eee2}
+.distance-edition .guestbook:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background:radial-gradient(circle at 18% 28%,#d6c481 0 1px,transparent 2px),radial-gradient(circle at 78% 66%,#b7d396 0 1px,transparent 2px);background-size:48px 58px,63px 69px}
+.distance-edition .guestbook>.eyebrow,.distance-edition .guestbook h2,.distance-edition .guestbook-intro,.distance-edition .guestbook-layout{position:relative;z-index:1}
+.distance-edition .guestbook h2{color:#e9eddf}
+.distance-edition .guestbook h2 i{color:#b5cf91}
+.distance-edition .guestbook-intro{max-width:460px;margin:0 auto 38px;color:#c3d1c4;font:italic 18px/1.45 var(--serif)}
+.distance-edition .guestbook-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.8fr);gap:24px;align-items:start;max-width:980px;margin:0 auto;text-align:left}
+.distance-edition .guest-wishes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;min-height:180px}
+.distance-edition .wish-card,.distance-edition .wish-empty{position:relative;min-height:174px;padding:22px 20px 19px;border:1px solid #b6ca8d38;border-radius:4px;background:linear-gradient(145deg,#20372bdb,#101a16eF);box-shadow:0 14px 36px #0003,inset 0 1px #e8ecc80a;animation:wish-arrive .55s cubic-bezier(.2,.75,.25,1) both}
+.distance-edition .wish-mark{position:absolute;top:6px;left:15px;color:#d4bd77;font:44px/.9 var(--serif);opacity:.7}
+.distance-edition .wish-message{position:relative;margin:19px 0 19px;color:#e4eade;font:italic 18px/1.4 var(--serif);overflow-wrap:anywhere}
+.distance-edition .wish-name{margin:0;color:#c7d69e;font:26px/1 var(--script);text-align:right}
+.distance-edition .wish-empty{grid-column:1/-1;display:flex;min-height:180px;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-style:dashed;background:#14251d88}
+.distance-edition .wish-empty>span{color:#d6c27f;font:34px var(--serif);text-shadow:0 0 15px #d6c27f55}
+.distance-edition .wish-empty p{margin:8px 0;color:#e2eadc;font:italic 21px var(--serif)}
+.distance-edition .wish-empty small{color:#aebea8;font:600 8px var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.distance-edition .wish-form{padding:24px 22px 19px;border:1px solid #c5aa5a58;border-radius:4px;background:linear-gradient(145deg,#1b3026,#111a16);box-shadow:0 16px 40px #0004}
+.distance-edition .wish-form-title{margin:0 0 18px;color:#d8c783;font:600 9px var(--sans);letter-spacing:.2em}
+.distance-edition .wish-form label{display:block;margin:0 0 14px;color:#c8d4c6;font:600 9px var(--sans);letter-spacing:.12em;text-transform:uppercase}
+.distance-edition .wish-form input,.distance-edition .wish-form textarea{display:block;width:100%;margin-top:7px;padding:11px 12px;border:1px solid #a9bf8f45;border-radius:3px;outline:0;background:#0d1713;color:#f0eee1;font:16px/1.45 var(--serif);letter-spacing:0;text-transform:none;resize:vertical}
+.distance-edition .wish-form input:focus,.distance-edition .wish-form textarea:focus{border-color:#d0bd79;box-shadow:0 0 0 3px #d0bd791b}
+.distance-edition .wish-form input::placeholder,.distance-edition .wish-form textarea::placeholder{color:#819286}
+.distance-edition .wish-form button{display:flex;align-items:center;justify-content:space-between;gap:18px;width:100%;padding:13px 15px;border:1px solid #c9b36f7a;border-radius:3px;background:linear-gradient(110deg,#294734,#1a3126);color:#f0e6c4;font:600 9px var(--sans);letter-spacing:.17em;text-transform:uppercase;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.distance-edition .wish-form button span{font:20px var(--serif)}
+.distance-edition .wish-form button:hover:not(:disabled),.distance-edition .wish-form button:focus-visible{transform:translateY(-2px);box-shadow:0 8px 24px #0005,0 0 18px #b7cf8930}
+.distance-edition .wish-form button:disabled{opacity:.55;cursor:not-allowed}
+.distance-edition .wish-status{min-height:28px;margin:12px 0 0;color:#aebea8;font:italic 13px/1.35 var(--serif)}
+.distance-edition .wish-status.is-error{color:#edb7a5}
+.distance-edition .wish-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+@keyframes wish-arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.distance-edition .guestbook-layout{grid-template-columns:1fr;gap:18px}.distance-edition .guest-wishes{grid-template-columns:1fr}.distance-edition .wish-card{min-height:145px}.distance-edition .wish-form{padding:20px 16px}.distance-edition .guestbook-intro{margin-bottom:28px}}
+@media(prefers-reduced-motion:reduce){.distance-edition .wish-card,.distance-edition .wish-empty{animation:none}}

@@ -9,7 +9,18 @@
   const india = [80.27, 13.08]; // Chennai
   const interpolate = d3.geoInterpolate(usa, india);
   const route = { type: 'LineString', coordinates: Array.from({ length: 100 }, (_, i) => interpolate(i / 99)) };
-  const land = { type: 'MultiPolygon', coordinates: window.WEDDING_LAND.map((ring) => [ring]) };
+  // The simplified land dataset stores open coordinate chains. Spherical
+  // polygons must be closed; without the closing point D3 interprets some
+  // small islands as near-global polygons, briefly painting the whole ocean.
+  const land = {
+    type: 'MultiPolygon',
+    coordinates: window.WEDDING_LAND.map((ring) => {
+      const first = ring[0];
+      const last = ring[ring.length - 1];
+      const closed = first[0] === last[0] && first[1] === last[1] ? ring : [...ring, first];
+      return [closed];
+    })
+  };
   const graticule = d3.geoGraticule().step([30, 30])();
   const projection = d3.geoOrthographic().clipAngle(90).precision(0.35);
   const path = d3.geoPath(projection, ctx);
@@ -19,6 +30,13 @@
   let dpr = 1;
   let frame = 0;
   let start = performance.now();
+  let inView = false;
+
+  function schedule() {
+    if (!reduced && inView && !document.hidden && !frame) {
+      frame = requestAnimationFrame(render);
+    }
+  }
 
   function resize() {
     const box = canvas.getBoundingClientRect();
@@ -92,19 +110,22 @@
   }
 
   function render(now) {
+    frame = 0;
     if (!width || !height) resize();
     if (!width || !height) return;
     const radius = Math.min(width, height) / 2 - 1;
     const cx = width / 2;
     const cy = height / 2;
-    const rotation = reduced ? 0 : ((now - start) / 42000 * 360) % 360;
+    // Keep the globe visibly rotating, but at a calm pace that reads smoothly
+    // on mobile instead of looking like a sudden jump between map frames.
+    const rotation = reduced ? 0 : ((now - start) / 76000 * 360) % 360;
     projection.scale(radius).translate([cx, cy]).rotate([rotation, -4, 0]);
 
     ctx.clearRect(0, 0, width, height);
     const ocean = ctx.createRadialGradient(cx - radius * 0.34, cy - radius * 0.38, radius * 0.08, cx, cy, radius * 1.08);
-    ocean.addColorStop(0, '#476a50');
-    ocean.addColorStop(0.56, '#203e31');
-    ocean.addColorStop(1, '#091512');
+    ocean.addColorStop(0, '#3f8055');
+    ocean.addColorStop(0.56, '#16442f');
+    ocean.addColorStop(1, '#07150f');
     ctx.beginPath();
     path({ type: 'Sphere' });
     ctx.fillStyle = ocean;
@@ -124,7 +145,7 @@
 
     ctx.beginPath();
     path(land);
-    ctx.fillStyle = '#c0d09a82';
+    ctx.fillStyle = '#b9cf8c';
     ctx.fill();
     ctx.strokeStyle = '#e1d09a52';
     ctx.lineWidth = 0.38;
@@ -152,20 +173,27 @@
     ctx.fillStyle = shine;
     ctx.fill();
 
-    if (!reduced && !document.hidden) frame = requestAnimationFrame(render);
+    schedule();
   }
 
   const observer = new IntersectionObserver((entries) => {
-    if (entries.some((entry) => entry.isIntersecting) && !frame && !reduced) {
-      start = performance.now();
-      frame = requestAnimationFrame(render);
-    } else if (!entries.some((entry) => entry.isIntersecting) && frame) {
+    inView = entries.some((entry) => entry.isIntersecting);
+    if (!inView && frame) {
       cancelAnimationFrame(frame);
       frame = 0;
     }
+    if (inView) schedule();
   }, { threshold: 0.02 });
   observer.observe(globe);
   resize();
   render(start);
   window.addEventListener('resize', resize, { passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && frame) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+    } else {
+      schedule();
+    }
+  });
 })();
