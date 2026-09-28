@@ -114,4 +114,4 @@
 .distance-edition .event-card.reveal-in,.distance-edition .boarding-pass.reveal-in{translate:0 0!important;scale:1!important}
 
 /* Tamil couplet set as a clear two-line verse. */
-.distance-edition .final-kural{font-family:"Noto Serif Tamil",serif;font-size:clamp(15px,1.65vw,21px)!important;font-style:normal;font-weight:600!important;line-height:1.8;letter-spacing:0;text-align:center}
+.distance-edition .final-kural{font-family:"Noto Serif Tamil",serif;font-size:clamp(12.5px,1.25vw,16px)!important;font-style:normal;font-weight:600!important;line-height:1.9;letter-spacing:-.025em;text-align:center}
