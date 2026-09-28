@@ -1,6 +1,6 @@
 # Rokesh & Sara — Wedding Invitation
 
-A mobile-friendly, animated static invitation for Rokesh P and Sara Akshaya S.
+A mobile-friendly, animated static invitation for Rokesh P and Sara.
 
 ## Live site
 
