@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rokesh and Sara//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:wedding-ceremony-20270120@rokesh-sara-invitation
+DTSTAMP:20260928T051044Z
+SUMMARY:Rokesh & Sara | Wedding Ceremony
+DTSTART:20270120T040000Z
+DTEND:20270120T070000Z
+LOCATION:VGP Golden Beach Resort\, 5\, 159\, SH 49\, Injambakkam\, Chennai 
+ 600115\, Tamil Nadu
+DESCRIPTION:Join us for the wedding ceremony.
+END:VEVENT
+END:VCALENDAR
