@@ -98,8 +98,8 @@
 /* Match the two closing blessings in ivory with a restrained gold edge. */
 .distance-edition .muruga-blessing,.distance-edition .paired-blessings blockquote{color:#f5f0e4;-webkit-text-stroke:.22px #c7a85f;text-shadow:0 0 12px #c7a85f20}
 /* Separate the LOVE route label from the globe beneath it. */
-.distance-edition .hero .hero-globe{margin-top:40px!important}
-@media(max-width:600px){.distance-edition .hero .hero-globe{margin-top:34px!important}}
+.distance-edition .hero .hero-globe{top:30%!important}
+@media(max-width:600px){.distance-edition .hero .hero-globe{top:31%!important}}
 /* Keep the envelope focused on its seal and reveal the names like a gold-foil card. */
 .distance-edition .intro-couple{display:none!important}
 .distance-edition .letter-peek{align-items:center;gap:9px;padding:20px 10px 0;background:linear-gradient(145deg,#f9f3df,#e7ddbe 62%,#d8c797);color:#725a2d;font:600 20px/1 var(--serif);letter-spacing:.16em;text-shadow:0 1px #fff9;box-shadow:inset 0 0 0 1px #c4a86670,inset 0 0 0 5px #f7f0dc}
