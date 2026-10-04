@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Noto+Serif+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="long-distance.css?v=guestbook-1">
+  <link rel="stylesheet" href="long-distance.css?v=guestbook-carousel-1">
 </head>
 <body class="distance-edition">
   <div class="intro" id="intro" aria-label="Open your invitation">
@@ -52,7 +52,7 @@
         <div class="event-rule"></div><p class="event-date">JANUARY 19, 2027</p><p class="event-time">7:00 in the evening</p><div class="calendar-actions"><a class="calendar-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rokesh%20%26%20Sara%20%7C%20Welcome%20Reception&amp;dates=20270119T190000%2F20270119T220000&amp;ctz=Asia%2FKolkata&amp;details=Join%20us%20for%20the%20welcome%20reception.&amp;location=VGP%20Golden%20Beach%20Resort%2C%20Chennai" target="_blank" rel="noopener">GOOGLE CALENDAR ↗</a><a class="calendar-link" href="assets/reception.ics" download>APPLE / OUTLOOK ↓</a></div>
         <div class="event-venue"><span>⌖</span><div><b>VGP Golden Beach Resort</b><small>5, 159, SH 49 · Injambakkam</small><small>Chennai 600115, Tamil Nadu</small></div></div>
         <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=VGP+Golden+Beach+Resort%2C+Injambakkam%2C+Chennai%2C+Tamil+Nadu+600115" target="_blank" rel="noopener">FIND YOUR WAY <span>↗</span></a>
-        <div class="card-flower">✿</div><span class="event-glow" aria-hidden="true"></span>
+        <div class="card-flower card-flower-top" aria-hidden="true">✿</div><div class="card-flower" aria-hidden="true">✿</div><span class="event-glow" aria-hidden="true"></span>
       </article>
       <article class="event-card wedding reveal-in">
         <div class="event-topline"><span>THE DAY WE SAY “I DO”</span><span class="event-number">02</span></div>
@@ -60,7 +60,7 @@
         <div class="event-rule"></div><p class="event-date">JANUARY 20, 2027</p><p class="event-time">9:30 in the morning</p><div class="calendar-actions"><a class="calendar-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rokesh%20%26%20Sara%20%7C%20Wedding%20Ceremony&amp;dates=20270120T093000%2F20270120T123000&amp;ctz=Asia%2FKolkata&amp;details=Join%20us%20for%20the%20wedding%20ceremony.&amp;location=VGP%20Golden%20Beach%20Resort%2C%20Chennai" target="_blank" rel="noopener">GOOGLE CALENDAR ↗</a><a class="calendar-link" href="assets/wedding.ics" download>APPLE / OUTLOOK ↓</a></div>
         <div class="event-venue"><span>⌖</span><div><b>VGP Golden Beach Resort</b><small>5, 159, SH 49 · Injambakkam</small><small>Chennai 600115, Tamil Nadu</small></div></div>
         <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=VGP+Golden+Beach+Resort%2C+Injambakkam%2C+Chennai%2C+Tamil+Nadu+600115" target="_blank" rel="noopener">FIND YOUR WAY <span>↗</span></a>
-        <div class="card-flower">❀</div><span class="event-glow" aria-hidden="true"></span>
+        <div class="card-flower card-flower-top" aria-hidden="true">❀</div><div class="card-flower" aria-hidden="true">❀</div><span class="event-glow" aria-hidden="true"></span>
       </article>
       
     </section>
@@ -78,8 +78,19 @@
       <h2 class="reveal-in">Leave us a<br><i>happy thought</i></h2>
       <p class="guestbook-intro reveal-in">Your words will become part of the story we carry into forever.</p>
       <div class="guestbook-layout">
-        <div class="guest-wishes reveal-in" id="guestWishes" aria-live="polite" aria-label="Messages from our guests">
-          <article class="wish-empty"><span aria-hidden="true">♡</span><p>The first lovely wishes will appear here.</p><small>Be the first to leave us a note</small></article>
+        <div class="guest-wishes-panel reveal-in">
+          <div class="wishes-carousel" role="region" aria-roledescription="carousel" aria-label="Wishes from our guests">
+            <div class="guest-wishes" id="guestWishes" role="group" aria-label="Guest wishes. Use the left and right arrow keys to browse." tabindex="0" aria-live="polite" aria-atomic="true">
+              <div class="wish-track" id="wishTrack"><div class="wish-slide" data-position="current"><article class="wish-empty"><span aria-hidden="true">♡</span><p>The first lovely wishes will appear here.</p><small>Be the first to leave us a note</small></article></div></div>
+            </div>
+          </div>
+          <div class="wish-carousel-controls" id="wishCarouselControls" hidden>
+            <button class="wish-arrow" id="wishPrevious" type="button" aria-label="Show previous wish">←</button>
+            <div class="wish-pager" id="wishPager" aria-hidden="true"></div>
+            <span class="wish-counter" id="wishCounter" aria-live="off"></span>
+            <button class="wish-arrow" id="wishNext" type="button" aria-label="Show next wish">→</button>
+          </div>
+          <button class="wish-all-button" id="viewAllWishes" type="button" hidden>Read all wishes <span aria-hidden="true">↗</span></button>
         </div>
         <form class="wish-form reveal-in" id="wishForm">
           <p class="wish-form-title">WRITE US A NOTE</p>
@@ -90,9 +101,13 @@
           <p class="wish-status" id="wishStatus" role="status" aria-live="polite">Messages shared here will be visible to everyone.</p>
         </form>
       </div>
+      <dialog class="all-wishes-dialog" id="allWishesDialog" aria-labelledby="allWishesTitle">
+        <div class="all-wishes-header"><div><p class="eyebrow">A keepsake from our favourite people</p><h3 id="allWishesTitle">All your wishes</h3></div><button class="all-wishes-close" id="closeAllWishes" type="button" aria-label="Close all wishes">×</button></div>
+        <div class="all-wishes-grid" id="allWishesGrid"></div>
+      </dialog>
     </section>
 
-    <section class="closing"><img class="closing-art reveal-in" src="assets/forever.svg" alt="A sweet illustration of Rokesh and Sara celebrating together"><div class="closing-stars reveal-in">✧ &nbsp; ✦ &nbsp; ✧</div><div class="closing-orbit" aria-hidden="true"><i>♡</i></div><p class="eyebrow reveal-in">From far apart to right here</p><h2 class="reveal-in">Our forever<br><i>starts with you</i></h2><div class="countdown reveal-in" id="weddingCountdown" data-date="2027-01-20T09:30:00+05:30" role="timer" aria-label="Countdown to the wedding ceremony"><p class="countdown-heading">COUNTING DOWN TO OUR WEDDING</p><div class="countdown-grid"><div><strong data-unit="days">—</strong><span>DAYS</span></div><div><strong data-unit="hours">—</strong><span>HOURS</span></div><div><strong data-unit="minutes">—</strong><span>MINUTES</span></div><div><strong data-unit="seconds">—</strong><span>SECONDS</span></div></div><p class="countdown-time">JANUARY 20, 2027 · 9:30 AM · CHENNAI TIME</p></div><div class="final-blessings reveal-in"><p class="final-kural" lang="ta">அன்பிற்கும் உண்டோ அடைக்குந்தாழ் ஆர்வலர்<br>புன்கணீர் பூசல் தரும்.</p><div class="paired-blessings"><p class="muruga-blessing">✦ &nbsp; Om Muruga!</p><blockquote>“So they are no longer two, but one flesh. Therefore what God has joined together, let no man separate.”<cite>MATTHEW 19:6</cite></blockquote></div></div><p class="reveal-in">With love and excitement,</p><div class="signature reveal-in">Rokesh <span>&amp;</span> Sara</div><p class="closing-date reveal-in">JANUARY 19–20, 2027 · CHENNAI</p><div class="closing-flower">❀</div></section>
+    <section class="closing"><img class="closing-art reveal-in" src="assets/forever.svg" alt="A sweet illustration of Rokesh and Sara celebrating together"><div class="closing-stars reveal-in">✧ &nbsp; ✦ &nbsp; ✧</div><div class="closing-orbit" aria-hidden="true"><i>♡</i></div><p class="eyebrow reveal-in">From far apart to right here</p><h2 class="reveal-in">Our forever<br><i>starts with you</i></h2><div class="countdown reveal-in" id="weddingCountdown" data-date="2027-01-20T09:30:00+05:30" role="timer" aria-label="Countdown to the wedding ceremony"><p class="countdown-heading">COUNTING DOWN TO OUR WEDDING</p><div class="countdown-grid"><div><strong data-unit="days">—</strong><span>DAYS</span></div><div><strong data-unit="hours">—</strong><span>HOURS</span></div><div><strong data-unit="minutes">—</strong><span>MINUTES</span></div><div><strong data-unit="seconds">—</strong><span>SECONDS</span></div></div><p class="countdown-time">JANUARY 20, 2027 · 9:30 AM · CHENNAI TIME</p></div><div class="final-blessings reveal-in"><p class="final-kural" lang="ta">அன்பிற்கும் உண்டோ அடைக்குந்தாழ் ஆர்வலர்<br>புன்கணீர் பூசல் தரும்.</p><div class="paired-blessings"><p class="muruga-blessing"><span class="muruga-star" aria-hidden="true">✦</span><span>Om</span><svg class="murugan-vel" aria-hidden="true" focusable="false" viewBox="0 0 24 64"><path d="M12 2C9 10 4 14 5 21c2 2 4 2 7 0 3 2 5 2 7 0 1-7-4-11-7-19Z"/><path d="M12 21v38M8 35l4 4 4-4M9 59h6"/></svg><span>Muruga!</span></p><blockquote>“So they are no longer two, but one flesh. Therefore what God has joined together, let no man separate.”<cite>MATTHEW 19:6</cite></blockquote></div></div><p class="reveal-in">With love and excitement,</p><div class="signature reveal-in">Rokesh <span>&amp;</span> Sara</div><p class="closing-date reveal-in">JANUARY 19–20, 2027 · CHENNAI</p><div class="closing-flower" aria-hidden="true">❀</div></section>
     <footer>MADE WITH LOVE &nbsp; ♡ &nbsp; FOR OUR FAVOURITE PEOPLE</footer>
   </main>
   <script src="assets/d3-array.min.js?v=globe-5"></script>
@@ -102,6 +117,6 @@
   <script src="long-distance-opener.js"></script>
   <script src="long-distance.js"></script>
   <script src="guestbook-config.js?v=guestbook-2"></script>
-  <script src="guestbook.js"></script>
+  <script src="guestbook.js?v=carousel-1"></script>
 </body>
 </html>

@@ -189,3 +189,61 @@
 @keyframes wish-arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:700px){.distance-edition .guestbook-layout{grid-template-columns:1fr;gap:18px}.distance-edition .guest-wishes{grid-template-columns:1fr}.distance-edition .wish-card{min-height:145px}.distance-edition .wish-form{padding:20px 16px}.distance-edition .guestbook-intro{margin-bottom:28px}}
 @media(prefers-reduced-motion:reduce){.distance-edition .wish-card,.distance-edition .wish-empty{animation:none}}
+
+/* Invitation-card flowers mirror each other in the event card corners. */
+.distance-edition .card-flower{z-index:0;pointer-events:none;user-select:none}
+.distance-edition .event-card>*:not(.card-flower):not(.event-glow){position:relative;z-index:1}
+.distance-edition .card-flower-top{top:-48px;right:auto;bottom:auto;left:-16px;transform:rotate(180deg)}
+
+/* Frame the event cards with flowers tucked partly beyond opposite corners. */
+.distance-edition .event-card .card-flower{right:-38px;bottom:-38px;font-size:150px}
+.distance-edition .event-card .card-flower-top{top:-38px;right:auto;bottom:auto;left:-38px}
+
+/* A fine gold Vel rests between the two words of the Muruga blessing. */
+.distance-edition .muruga-blessing{display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
+.distance-edition .muruga-star{margin-right:5px}
+.distance-edition .murugan-vel{width:13px;height:36px;flex:0 0 auto;overflow:visible;fill:#d8bd74;stroke:#f1daa0;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px #d8bd7466)}
+
+/* The closing rosette turns gently like a small ceremonial wheel. */
+.distance-edition .closing-flower{display:inline-block;transform-origin:center;animation:flower-wheel 18s linear infinite}
+@keyframes flower-wheel{to{transform:rotate(1turn)}}
+
+/* The active wish sits in the center, with the next keepsakes softly in view. */
+.distance-edition .guestbook-layout{grid-template-columns:minmax(0,1.3fr) minmax(280px,.8fr)}
+.distance-edition .guest-wishes-panel{min-width:0}
+.distance-edition .wishes-carousel{overflow:hidden;border-radius:4px}
+.distance-edition .guest-wishes{position:relative;display:block;height:250px;min-height:0;overflow:hidden;touch-action:pan-y;outline:none;perspective:900px}
+.distance-edition .wish-track{position:absolute;inset:0;width:auto;min-height:0;display:block;transform:none;will-change:auto}
+.distance-edition .wish-slide{position:absolute;top:4%;left:50%;display:flex;width:72%;height:92%;min-width:0;padding:2px;opacity:0;filter:blur(3px);pointer-events:none;transform:translateX(-50%) scale(.76);z-index:0;transition:transform .62s cubic-bezier(.2,.75,.18,1),opacity .5s ease,filter .5s ease}
+.distance-edition .wish-slide[data-position="current"]{opacity:1;filter:none;pointer-events:auto;transform:translateX(-50%) scale(1);z-index:3}
+.distance-edition .wish-slide[data-position="previous"]{opacity:.48;filter:blur(1.5px);transform:translateX(-145%) scale(.82);z-index:1}
+.distance-edition .wish-slide[data-position="next"]{opacity:.48;filter:blur(1.5px);transform:translateX(45%) scale(.82);z-index:1}
+.distance-edition .wish-track.is-sliding-next .wish-slide[data-position="current"]{opacity:.36;filter:blur(2px);transform:translateX(-145%) scale(.82)}
+.distance-edition .wish-track.is-sliding-next .wish-slide[data-position="next"]{opacity:1;filter:none;transform:translateX(-50%) scale(1);z-index:3}
+.distance-edition .wish-track.is-sliding-next .wish-slide[data-position="previous"]{opacity:0;filter:blur(4px);transform:translateX(-240%) scale(.72)}
+.distance-edition .wish-track.is-sliding-previous .wish-slide[data-position="current"]{opacity:.36;filter:blur(2px);transform:translateX(45%) scale(.82)}
+.distance-edition .wish-track.is-sliding-previous .wish-slide[data-position="previous"]{opacity:1;filter:none;transform:translateX(-50%) scale(1);z-index:3}
+.distance-edition .wish-track.is-sliding-previous .wish-slide[data-position="next"]{opacity:0;filter:blur(4px);transform:translateX(145%) scale(.72)}
+.distance-edition .wish-card,.distance-edition .wish-empty{width:100%;height:100%;min-height:0;margin:0;animation:none}
+.distance-edition .wish-message{max-height:132px;overflow:auto;overscroll-behavior:contain}
+.distance-edition .wish-carousel-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px auto 0}
+.distance-edition .wish-carousel-controls[hidden],.distance-edition .wish-all-button[hidden]{display:none}
+.distance-edition .wish-arrow,.distance-edition .all-wishes-close{display:grid;place-items:center;width:44px;height:44px;border:1px solid #b9c99155;border-radius:50%;background:#172a21;color:#e8ebdb;font:22px/1 var(--serif);cursor:pointer;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.distance-edition .wish-arrow:hover,.distance-edition .wish-arrow:focus-visible,.distance-edition .all-wishes-close:hover,.distance-edition .all-wishes-close:focus-visible{transform:scale(1.08);border-color:#d4bd77;background:#263b2c}
+.distance-edition .wish-pager{display:flex;align-items:center;justify-content:center;gap:7px;min-width:48px}
+.distance-edition .wish-dot{width:6px;height:6px;border-radius:99px;background:#8da28a;opacity:.45;transition:width .35s ease,opacity .35s ease,background .35s ease}
+.distance-edition .wish-dot.is-current{width:20px;background:#d4bd77;opacity:1;box-shadow:0 0 10px #d4bd7755}
+.distance-edition .wish-counter{min-width:54px;color:#b8c8ad;font:600 9px var(--sans);letter-spacing:.12em;text-align:center}
+.distance-edition .wish-all-button{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:14px;padding:12px 15px;border:1px solid #b7cc8d55;border-radius:3px;background:#16271f;color:#e1e8d9;font:600 9px var(--sans);letter-spacing:.17em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.distance-edition .wish-all-button:hover,.distance-edition .wish-all-button:focus-visible{transform:translateY(-1px);border-color:#d4bd77;background:#20382a}
+.distance-edition .all-wishes-dialog{width:100%;height:100dvh;min-height:100dvh;max-width:none;max-height:100dvh;margin:auto;padding:clamp(24px,5vw,64px);overflow:auto;border:0;border-radius:0;background:radial-gradient(ellipse at 50% 0%,#244532,#101a16 68%);color:#e7eee2;box-shadow:0 0 0 100vmax #050908d9}
+.distance-edition .all-wishes-dialog::backdrop{background:#050908d9;backdrop-filter:blur(8px)}
+.distance-edition .all-wishes-header{position:sticky;top:calc(-1 * clamp(20px,4vw,38px));z-index:2;display:flex;align-items:center;justify-content:space-between;gap:18px;margin:calc(-1 * clamp(20px,4vw,38px)) calc(-1 * clamp(20px,4vw,38px)) 22px;padding:clamp(20px,4vw,38px);background:linear-gradient(180deg,#1b3329 72%,#1b332900)}
+.distance-edition .all-wishes-header .eyebrow{margin:0;color:#b8ca94}
+.distance-edition .all-wishes-header h3{margin:7px 0 0;color:#e9eddf;font:500 clamp(34px,6vw,54px)/1 var(--serif)}
+.distance-edition .all-wishes-close{flex:0 0 44px;font:30px/1 var(--serif)}
+.distance-edition .all-wishes-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:1080px;margin:0 auto}
+.distance-edition .all-wishes-grid .wish-card{min-height:150px;padding:21px 18px 17px}
+.distance-edition .all-wishes-grid .wish-message{max-height:none;overflow:visible}
+@media(max-width:700px){.distance-edition .guestbook-layout{grid-template-columns:1fr;gap:18px}.distance-edition .guestbook .guest-wishes{height:220px;min-height:0}.distance-edition .guestbook .wish-slide{width:78%}.distance-edition .guestbook .wish-card,.distance-edition .guestbook .wish-empty{padding:21px 17px 17px}.distance-edition .wish-message{font-size:17px}.distance-edition .all-wishes-grid{grid-template-columns:1fr}.distance-edition .all-wishes-grid .wish-card{min-height:135px}}
+@media(prefers-reduced-motion:reduce){.distance-edition .closing-flower{animation:none}.distance-edition .wish-slide{transition-duration:.01ms}.distance-edition .wish-dot,.distance-edition .wish-arrow,.distance-edition .all-wishes-close,.distance-edition .wish-all-button{transition:none}}
