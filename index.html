@@ -38,7 +38,26 @@
 
     <section class="story section" id="story">
       <p class="eyebrow reveal-in">A love without borders</p><h2 class="reveal-in">Across the miles,<br><i>closer than ever</i></h2>
-      <div class="story-art distance-art reveal-in" aria-label="Two hearts connected across a long-distance journey"><img class="journey-art" src="assets/distance-love.svg" alt="A cute illustrated couple connected across oceans by a glowing path"></div>
+      <div class="couple-gallery reveal-in" id="coupleGallery" role="region" aria-roledescription="carousel" aria-label="Meet Rokesh and Sara">
+        <p class="couple-gallery-heading">Meet Rokesh &amp; Sara</p>
+        <div class="couple-gallery-stage" id="coupleGalleryStage">
+          <span class="couple-gallery-flower flower-upper" aria-hidden="true">✿</span>
+          <span class="couple-gallery-flower flower-lower" aria-hidden="true">✿</span>
+          <figure class="couple-photo-frame" id="couplePhotoFrame"><img id="coupleGalleryImage" src="assets/meet-rokesh-sara/rokesh-sara-traditional.jpg" alt="Rokesh and Sara together in traditional Indian attire" decoding="async" fetchpriority="low"><span class="photo-frame-glint" aria-hidden="true"></span></figure>
+        </div>
+        <p class="couple-gallery-caption" id="coupleGalleryCaption" aria-live="polite">A little tradition, a lot of us</p>
+        <div class="couple-gallery-controls" aria-label="Photo controls">
+          <button class="couple-gallery-arrow" id="couplePhotoPrevious" type="button" aria-label="Previous photo">‹</button>
+          <div class="couple-gallery-dots" role="group" aria-label="Choose a photo">
+            <button class="couple-gallery-dot is-current" type="button" aria-label="Show photo 1" aria-current="true" data-src="assets/meet-rokesh-sara/rokesh-sara-traditional.jpg" data-alt="Rokesh and Sara together in traditional Indian attire" data-caption="A little tradition, a lot of us"></button>
+            <button class="couple-gallery-dot" type="button" aria-label="Show photo 2" aria-current="false" data-src="assets/meet-rokesh-sara/rokesh-sara-selfie.jpg" data-alt="Rokesh and Sara smiling together for a close selfie" data-caption="Every reunion feels like home"></button>
+            <button class="couple-gallery-dot" type="button" aria-label="Show photo 3" aria-current="false" data-src="assets/meet-rokesh-sara/rokesh-sara-winter-trip.jpg" data-alt="Rokesh and Sara together on a snowy trip" data-caption="Finding each other in every corner of the world"></button>
+            <button class="couple-gallery-dot" type="button" aria-label="Show photo 4" aria-current="false" data-src="assets/meet-rokesh-sara/rokesh-sara-together.jpg" data-alt="Rokesh and Sara sharing a close outdoor moment" data-caption="Side by side, wherever we are"></button>
+            <button class="couple-gallery-dot" type="button" aria-label="Show photo 5" aria-current="false" data-src="assets/meet-rokesh-sara/rokesh-sara-evening.jpg" data-alt="Rokesh and Sara spending an evening together outdoors" data-caption="One more evening to remember"></button>
+          </div>
+          <button class="couple-gallery-arrow" id="couplePhotoNext" type="button" aria-label="Next photo">›</button>
+        </div>
+      </div>
       <p class="story-text reveal-in">Thousands of miles may lie between two places, but never between two hearts. From video calls across time zones to the moment we finally met in India, every mile became part of our story. Now, we get to begin forever together.</p>
       <div class="story-note reveal-in">Different time zones, one shared heartbeat <span>♡</span></div>
       <div class="miles-meter reveal-in"><div class="miles-head"><span>USA</span><b>MILES BETWEEN US</b><span>INDIA</span></div><div class="distance-track"><i class="distance-pin pin-left"></i><i class="distance-pin pin-right"></i><span class="distance-line"></span><span class="distance-plane">✈</span><span class="distance-heart">♡</span></div><p>Every call, every flight, every reunion brought us closer to this moment.</p></div>
@@ -116,6 +135,7 @@
   <script src="globe.js?v=globe-5"></script>
   <script src="long-distance-opener.js"></script>
   <script src="long-distance.js"></script>
+  <script src="couple-gallery.js"></script>
   <script src="guestbook-config.js?v=guestbook-2"></script>
   <script src="guestbook.js?v=carousel-1"></script>
 </body>

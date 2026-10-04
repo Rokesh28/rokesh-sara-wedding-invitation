@@ -196,13 +196,46 @@
 .distance-edition .card-flower-top{top:-48px;right:auto;bottom:auto;left:-16px;transform:rotate(180deg)}
 
 /* Frame the event cards with flowers tucked partly beyond opposite corners. */
-.distance-edition .event-card .card-flower{right:-38px;bottom:-38px;font-size:150px}
-.distance-edition .event-card .card-flower-top{top:-38px;right:auto;bottom:auto;left:-38px}
+.distance-edition .event-card .card-flower{right:-38px;bottom:-58px;font-size:150px}
+.distance-edition .event-card .card-flower-top{top:-58px;right:auto;bottom:auto;left:-38px}
 
 /* A fine gold Vel rests between the two words of the Muruga blessing. */
 .distance-edition .muruga-blessing{display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
 .distance-edition .muruga-star{margin-right:5px}
-.distance-edition .murugan-vel{width:13px;height:36px;flex:0 0 auto;overflow:visible;fill:#d8bd74;stroke:#f1daa0;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px #d8bd7466)}
+.distance-edition .murugan-vel{width:18px;height:34px;flex:0 0 auto;overflow:visible;fill:#f5f0e4;stroke:#c7a85f;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;transform:rotate(31deg);filter:drop-shadow(0 0 5px #d8bd7466)}
+
+/* A small framed photo carousel introduces the couple beneath the journey title. */
+.distance-edition .couple-gallery{position:relative;max-width:520px;margin:22px auto 26px;text-align:center}
+.distance-edition .couple-gallery-heading{margin:0 0 13px;color:#e2c879;font:400 clamp(36px,8vw,46px)/1.08 var(--script);text-shadow:0 0 18px #d8bd7460}
+.distance-edition .couple-gallery-stage{position:relative;display:grid;place-items:center;min-height:390px;isolation:isolate}
+.distance-edition .couple-gallery-stage:before,.distance-edition .couple-gallery-stage:after{content:"";position:absolute;z-index:-1;top:50%;left:50%;width:290px;height:290px;border:1px solid #d4bd7730;border-radius:50%;transform:translate(-50%,-50%);animation:gallery-orbit 28s linear infinite}
+.distance-edition .couple-gallery-stage:after{width:340px;height:340px;border-style:dashed;opacity:.42;animation-direction:reverse}
+.distance-edition .couple-photo-frame{position:relative;width:min(68vw,310px);aspect-ratio:4/5;margin:0;padding:9px;border:1px solid #c6ad6a;background:linear-gradient(145deg,#d8c995,#355140 42%,#17261e 100%);box-shadow:0 18px 48px #0008,0 0 0 5px #c4ae6e18,0 0 34px #b7ce8c15;transform:rotate(-1deg);transition:transform .42s ease,opacity .24s ease,filter .24s ease;overflow:hidden}
+.distance-edition .couple-photo-frame:before{content:"";position:absolute;z-index:2;inset:3px;border:1px solid #f5edcf9c;pointer-events:none}
+.distance-edition .couple-photo-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 42%;background:#173126}
+.distance-edition .couple-photo-frame.is-moving-left{opacity:0;filter:blur(3px);transform:translateX(-30px) rotate(-3deg) scale(.97)}
+.distance-edition .couple-photo-frame.is-moving-right{opacity:0;filter:blur(3px);transform:translateX(30px) rotate(2deg) scale(.97)}
+.distance-edition .couple-photo-frame.photo-enter-from-right{animation:photo-enter-right .58s cubic-bezier(.18,.74,.2,1) both}
+.distance-edition .couple-photo-frame.photo-enter-from-left{animation:photo-enter-left .58s cubic-bezier(.18,.74,.2,1) both}
+.distance-edition .photo-frame-glint{position:absolute;z-index:3;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 28%,#fff2 47%,#dce9b52c 51%,transparent 69%);transform:translateX(-130%);animation:photo-glint 7s 1s ease-in-out infinite}
+.distance-edition .couple-gallery-flower{position:absolute;z-index:4;color:#dfd39b;font:46px/1 var(--serif);text-shadow:0 3px 18px #0a100dcc,0 0 18px #d4bd7766;pointer-events:none;animation:gallery-flower-float 4.8s ease-in-out infinite}
+.distance-edition .couple-gallery-flower.flower-upper{top:calc(50% - 196px);left:calc(50% + 125px);transform:rotate(14deg)}
+.distance-edition .couple-gallery-flower.flower-lower{bottom:calc(50% - 196px);right:calc(50% + 125px);font-size:40px;animation-delay:-2.4s;transform:rotate(-14deg)}
+.distance-edition .couple-gallery-caption{min-height:24px;margin:4px 0 9px;color:#d5ddcc;font:italic 17px/1.35 var(--serif)}
+.distance-edition .couple-gallery-controls{display:flex;align-items:center;justify-content:center;gap:18px}
+.distance-edition .couple-gallery-arrow{display:grid;place-items:center;width:37px;height:37px;border:1px solid #c8d6a84d;border-radius:50%;background:#14241dcc;color:#e9e7d7;font:27px/1 var(--serif);cursor:pointer;transition:transform .25s ease,border-color .25s ease,background .25s ease}
+.distance-edition .couple-gallery-arrow:hover,.distance-edition .couple-gallery-arrow:focus-visible{transform:scale(1.1);border-color:#d4bd77;background:#24402e;outline:none}
+.distance-edition .couple-gallery-dots{display:flex;align-items:center;gap:9px}
+.distance-edition .couple-gallery-dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#a9b89a80;cursor:pointer;transition:width .3s ease,background .3s ease,box-shadow .3s ease}
+.distance-edition .couple-gallery-dot.is-current{width:23px;border-radius:8px;background:#d8bd74;box-shadow:0 0 12px #d8bd7455}
+.distance-edition .couple-gallery-dot:focus-visible{outline:2px solid #d8bd74;outline-offset:4px}
+@keyframes gallery-orbit{to{transform:translate(-50%,-50%) rotate(1turn)}}
+@keyframes gallery-flower-float{0%,100%{translate:0 0}50%{translate:0 -7px}}
+@keyframes photo-glint{0%,60%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+@keyframes photo-enter-right{from{opacity:0;filter:blur(3px);transform:translateX(30px) rotate(2deg) scale(.97)}to{opacity:1;filter:none;transform:rotate(-1deg) scale(1)}}
+@keyframes photo-enter-left{from{opacity:0;filter:blur(3px);transform:translateX(-30px) rotate(-3deg) scale(.97)}to{opacity:1;filter:none;transform:rotate(-1deg) scale(1)}}
+@media(max-width:600px){.distance-edition .couple-gallery{margin:18px auto 22px}.distance-edition .couple-gallery-stage{min-height:350px}.distance-edition .couple-gallery-stage:before{width:245px;height:245px}.distance-edition .couple-gallery-stage:after{width:292px;height:292px}.distance-edition .couple-photo-frame{width:min(70vw,280px);padding:8px}.distance-edition .couple-gallery-flower.flower-upper{top:calc(50% - 174px);left:calc(50% + 105px);font-size:40px}.distance-edition .couple-gallery-flower.flower-lower{bottom:calc(50% - 174px);right:calc(50% + 105px);font-size:36px}}
+@media(prefers-reduced-motion:reduce){.distance-edition .couple-gallery-stage:before,.distance-edition .couple-gallery-stage:after,.distance-edition .couple-gallery-flower,.distance-edition .photo-frame-glint{animation:none}.distance-edition .couple-photo-frame.photo-enter-from-right,.distance-edition .couple-photo-frame.photo-enter-from-left{animation:none}}
 
 /* The closing rosette turns gently like a small ceremonial wheel. */
 .distance-edition .closing-flower{display:inline-block;transform-origin:center;animation:flower-wheel 18s linear infinite}
